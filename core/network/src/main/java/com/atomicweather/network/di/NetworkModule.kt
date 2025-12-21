@@ -1,12 +1,15 @@
 package com.atomicweather.network.di
 
+import com.atomicweather.common.dispatcher.DispatcherProvider
 import com.atomicweather.network.qualifier.BaseUrl
-import com.atomicweather.network.serializer.JsonProvider
+import com.atomicweather.network.qualifier.WeatherMapApiKey
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -24,8 +27,23 @@ object NetworkModule {
     fun provideBaseUrl(): String = "https://api.openweathermap.org/"
 
     @Provides
+    @WeatherMapApiKey
+    fun provideWeatherMapApiKey(): String = "e53ef1c8445ecce4efc8b90a9d82a96a"
+
+    @Provides
     @Singleton
     fun provideJson(): Json = Json { ignoreUnknownKeys = true }
+
+    @Provides
+    @Singleton
+    fun provideDispatchers() = object : DispatcherProvider {
+        override val main: CoroutineDispatcher
+            get() = Dispatchers.Main
+        override val io: CoroutineDispatcher
+            get() = Dispatchers.IO
+        override val default: CoroutineDispatcher
+            get() = Dispatchers.Default
+    }
 
     @Provides
     @Singleton

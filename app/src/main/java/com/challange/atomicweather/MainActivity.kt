@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.atomicweather.designsystem.theme.AtomicWeatherTheme
 import com.atomicweather.feature.weather.main.WeatherMainScreen
-import com.challange.atomicweather.ui.theme.AtomicWeatherTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
