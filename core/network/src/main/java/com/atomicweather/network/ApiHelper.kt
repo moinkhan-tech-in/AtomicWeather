@@ -9,6 +9,7 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import kotlinx.serialization.SerializationException
 
+@Suppress("TooGenericExceptionCaught")
 suspend inline fun <T> safeApiCall(
     crossinline apiCall: suspend () -> T
 ): AppResult<T> {

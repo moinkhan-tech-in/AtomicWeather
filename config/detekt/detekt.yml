@@ -1,0 +1,34 @@
+build:
+  maxIssues: 0
+
+config:
+  validation: true
+
+potential-bugs:
+  UnsafeCast:
+    active: true
+
+  UnsafeCallOnNullableType:
+    active: true
+
+  LateinitUsage:
+    active: true
+    excludeAnnotatedProperties:
+      - 'javax.inject.Inject'
+
+exceptions:
+  TooGenericExceptionCaught:
+    active: true
+    exceptionNames:
+      - 'Exception'
+      - 'Throwable'
+
+  SwallowedException:
+    active: true
+
+coroutines:
+  GlobalCoroutineUsage:
+    active: true
+
+  RedundantSuspendModifier:
+    active: true
