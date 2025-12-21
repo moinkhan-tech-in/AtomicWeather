@@ -1,1 +1,1 @@
-![Detekt](https://github.com/moinkhan-in/AtomicWeather/actions/workflows/quality.yml/badge.svg)
+[![Quality](https://github.com/moinkhan-in/AtomicWeather/actions/workflows/quality.yml/badge.svg?branch=main)](https://github.com/moinkhan-in/AtomicWeather/actions/workflows/quality.yml)
