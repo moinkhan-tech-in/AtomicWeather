@@ -1,1 +1,1 @@
-![Detekt](https://github.com/<OWNER>/<REPO>/actions/workflows/quality.yml/badge.svg)
+![Detekt](https://github.com/moinkhan-in/AtomicWeather/actions/workflows/quality.yml/badge.svg)
