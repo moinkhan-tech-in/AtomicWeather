@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,7 +53,7 @@ private fun WeatherMainScreenContent(
     uiState: WeatherMainUiState,
     onEvent: (WeatherMainUiEvent) -> Unit = {},
 ) {
-    var isPermissionGranted by remember { mutableStateOf(false) }
+    var isPermissionGranted by rememberSaveable { mutableStateOf(false) }
 
     val locationPermissionState = rememberLocationPermissionState(
         onPermissionResult = { isGranted ->
@@ -63,7 +64,7 @@ private fun WeatherMainScreenContent(
         }
     )
 
-    var showGrid by remember { mutableStateOf(false) }
+    var showGrid by rememberSaveable { mutableStateOf(false) }
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
