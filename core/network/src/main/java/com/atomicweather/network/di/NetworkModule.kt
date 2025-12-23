@@ -2,6 +2,7 @@ package com.atomicweather.network.di
 
 import com.atomicweather.common.dispatcher.DispatcherProvider
 import com.atomicweather.common.utils.Constants
+import com.atomicweather.network.BuildConfig
 import com.atomicweather.network.qualifier.BaseUrl
 import com.atomicweather.network.qualifier.WeatherMapApiKey
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -29,7 +30,7 @@ object NetworkModule {
 
     @Provides
     @WeatherMapApiKey
-    fun provideWeatherMapApiKey(): String = "e53ef1c8445ecce4efc8b90a9d82a96a"
+    fun provideWeatherMapApiKey(): String = BuildConfig.OPEN_WEATHER_API_KEY
 
     @Provides
     @Singleton
