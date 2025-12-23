@@ -60,4 +60,11 @@ data class AtomicWeatherTypography(
         lineHeight = 24.sp,
         letterSpacing = 0.sp
     ),
+    val weatherTemperatureMini: TextStyle = TextStyle(
+        fontFamily = PoppinsFontFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 28.sp,
+        lineHeight = 36.sp,
+        letterSpacing = 0.sp,
+    ),
 )

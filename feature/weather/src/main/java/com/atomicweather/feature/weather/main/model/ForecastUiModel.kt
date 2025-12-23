@@ -11,7 +11,7 @@ data class ForecastUiModel(
 
 data class ForecastDayUiModel(
     val title: String,
-    val subtitle: String,
+    val temp: String,
     val weatherIconSpec: AtomicImageSpec,
     val hourly: List<ForecastHourUiModel>
 )
@@ -19,5 +19,5 @@ data class ForecastDayUiModel(
 data class ForecastHourUiModel(
     val time: String,
     val temp: String,
-    val iconSpec: AtomicImageSpec
+    val weatherIconSpec: AtomicImageSpec
 )

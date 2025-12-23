@@ -1,6 +1,7 @@
 package com.atomicweather.network.di
 
 import com.atomicweather.common.dispatcher.DispatcherProvider
+import com.atomicweather.common.utils.Constants
 import com.atomicweather.network.qualifier.BaseUrl
 import com.atomicweather.network.qualifier.WeatherMapApiKey
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -24,7 +25,7 @@ object NetworkModule {
 
     @Provides
     @BaseUrl
-    fun provideBaseUrl(): String = "https://api.openweathermap.org/"
+    fun provideBaseUrl(): String = Constants.WEATHER_MAP_API_URL
 
     @Provides
     @WeatherMapApiKey

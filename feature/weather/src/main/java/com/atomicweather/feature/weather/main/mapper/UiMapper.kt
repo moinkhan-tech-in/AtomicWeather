@@ -1,19 +1,18 @@
 package com.atomicweather.feature.weather.main.mapper
 
 import com.atomicaweather.domain.model.Forecast
+import com.atomicweather.common.utils.weatherIconUrl
 import com.atomicweather.designsystem.components.AtomicImageSpec
 import com.atomicweather.feature.weather.R
-import com.atomicweather.feature.weather.main.model.*
+import com.atomicweather.feature.weather.main.model.ForecastDayUiModel
+import com.atomicweather.feature.weather.main.model.ForecastHourUiModel
+import com.atomicweather.feature.weather.main.model.ForecastUiModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
 import kotlin.math.abs
 import kotlin.math.roundToInt
-
-private fun weatherIconUrl(iconCode: String?): String {
-    return "https://openweathermap.org/img/wn/${iconCode ?: "02d"}@2x.png"
-}
 
 fun weatherToBackground(main: String?): Int {
     return when (main?.lowercase()) {
@@ -25,6 +24,7 @@ fun weatherToBackground(main: String?): Int {
     }
 }
 
+// Can be written in TimeUtils.
 private fun getFormatter(pattern: String, tz: TimeZone, locale: Locale = Locale.getDefault()): SimpleDateFormat {
     return SimpleDateFormat(pattern, locale).apply { timeZone = tz }
 }
@@ -32,19 +32,15 @@ private fun getFormatter(pattern: String, tz: TimeZone, locale: Locale = Locale.
 fun Forecast.toUiModel(): ForecastUiModel {
     val cityName = city?.name.orEmpty()
     val cityTimeZoneId = city?.timezone?.let { offset ->
-        // Create a TimeZone ID from the seconds offset, e.g., "GMT+05:30"
         val hours = offset / 3600
         val minutes = abs(offset % 3600 / 60)
         val sign = if (offset >= 0) "+" else "-"
         "GMT$sign${"%02d".format(hours)}:${"%02d".format(minutes)}"
     }
-    // Fallback to UTC if the city timezone is not available
     val cityTimeZone = cityTimeZoneId?.let { TimeZone.getTimeZone(it) } ?: TimeZone.getTimeZone("UTC")
 
-    // Define the formatters inside the function, configured with the city's specific timezone
     val dayKeyFormat = getFormatter("yyyyMMdd", cityTimeZone)
     val dayTitleFormat = getFormatter("EEEE", cityTimeZone)
-    val daySubtitleFormat = getFormatter("dd MMM", cityTimeZone)
     val timeFormat = getFormatter("HH:mm", cityTimeZone)
 
 
@@ -64,13 +60,13 @@ fun Forecast.toUiModel(): ForecastUiModel {
 
             ForecastDayUiModel(
                 title = dayTitleFormat.format(firstEntryDate),
-                subtitle = daySubtitleFormat.format(firstEntryDate),
+                temp = forecastItem.main?.temp?.roundToInt().toString(),
                 weatherIconSpec = AtomicImageSpec.Url(weatherIconUrl(forecastItem.weather.firstOrNull()?.icon)),
                 hourly = entries.map { (date, item) ->
                     ForecastHourUiModel(
                         time = timeFormat.format(date),
                         temp = item.main?.temp?.roundToInt().toString(),
-                        iconSpec = AtomicImageSpec.Url(weatherIconUrl(item.weather.firstOrNull()?.icon))
+                        weatherIconSpec = AtomicImageSpec.Url(weatherIconUrl(item.weather.firstOrNull()?.icon))
                     )
                 }
             )

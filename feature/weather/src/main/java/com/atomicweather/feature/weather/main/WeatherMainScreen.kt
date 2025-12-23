@@ -6,12 +6,16 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan.Companion.FullLine
+import androidx.compose.foundation.lazy.staggeredgrid.items
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,9 +35,11 @@ import com.atomicweather.designsystem.components.AtomicImage
 import com.atomicweather.designsystem.components.AtomicImageSpec
 import com.atomicweather.designsystem.components.AtomicMessageInfo
 import com.atomicweather.designsystem.components.WeatherCardItem
+import com.atomicweather.designsystem.components.WeatherCardSubItem
 import com.atomicweather.designsystem.components.WeatherTopBar
 import com.atomicweather.designsystem.theme.AtomicWeatherTheme
 import com.atomicweather.feature.weather.R
+import com.atomicweather.feature.weather.main.model.ForecastDayUiModel
 import com.atomicweather.feature.weather.main.model.ForecastUiModel
 import com.atomicweather.feature.weather.utils.rememberLocationPermissionState
 
@@ -141,19 +147,39 @@ private fun WeatherMainScreenBackground(bgImgSpec: AtomicImageSpec?) {
 @Composable
 private fun WeatherMainSuccessContent(forecast: ForecastUiModel, showGrid: Boolean) {
     Crossfade(showGrid) {
-        LazyVerticalGrid(
+        var expandedItem by remember { mutableStateOf<ForecastDayUiModel?>(null) }
+        LazyVerticalStaggeredGrid(
             modifier = Modifier.fillMaxSize(),
-            columns = GridCells.Adaptive(minSize = if (it) 128.dp else 360.dp),
+            columns = StaggeredGridCells.Adaptive(minSize = if (it) 128.dp else 360.dp),
             contentPadding = PaddingValues(32.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalItemSpacing = 16.dp
         ) {
-            items(forecast.days) { item ->
+            items(
+                key = { item -> item.title },
+                items = forecast.days,
+                span = { day ->
+                    if (day == expandedItem) FullLine else StaggeredGridItemSpan.SingleLane
+                }
+            ) { item ->
                 WeatherCardItem(
                     title = item.title,
                     leadingImageSpec = item.weatherIconSpec,
-                    tempValue = item.hourly.first().temp
-                )
+                    tempValue = item.temp,
+                    isExpanded = expandedItem == item,
+                    onExpandState = { if (it) expandedItem = item else expandedItem = null }
+                ) {
+                    HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
+                    Column(modifier = Modifier.padding(horizontal = 32.dp)) {
+                        item.hourly.forEach { hourly ->
+                            WeatherCardSubItem(
+                                leadingImageSpec = hourly.weatherIconSpec,
+                                time = hourly.time,
+                                tempValue = hourly.temp
+                            )
+                        }
+                    }
+                }
             }
         }
     }
