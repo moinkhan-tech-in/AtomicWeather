@@ -14,6 +14,29 @@ A modern Android weather application built with **Jetpack Compose** and **Clean 
 - 🔄 Error handling with retry mechanism
 - 🛡️ Permission handling with rationale dialogs
 
+## 📸 Screenshots
+
+### Portrait Mode
+
+<div align="center">
+  <img src="docs/images/main_grid.png" alt="Grid View" width="200"/>
+  <img src="docs/images/main_list.png" alt="List View" width="200"/>
+  <img src="docs/images/main_grid_exp.png" alt="Grid Expanded" width="200"/>
+  <img src="docs/images/main_list_expanded.png" alt="List Expanded" width="200"/>
+</div>
+
+### Landscape Mode
+
+<div align="center">
+  <img src="docs/images/main_grid_landscape.png" alt="Grid View Landscape" width="400"/>
+  <img src="docs/images/main_list_landscape.png" alt="List View Landscape" width="400"/>
+</div>
+
+## 🎥 Video
+
+<!-- Add video link or embed here when available -->
+_Demo video coming soon..._
+
 ## 🏗️ Architecture
 
 Built with **Clean Architecture** principles:
