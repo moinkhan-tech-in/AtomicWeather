@@ -22,6 +22,7 @@ android {
 
         val apiKey: String = gradleLocalProperties(rootDir,providers)
             .getProperty("OPEN_WEATHER_API_KEY")
+            ?: ""
 
         buildConfigField("String", "OPEN_WEATHER_API_KEY", "\"$apiKey\"")
     }
