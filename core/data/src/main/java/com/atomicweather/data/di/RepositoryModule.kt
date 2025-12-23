@@ -1,7 +1,5 @@
 package com.atomicweather.data.di
 
-import com.atomicaweather.domain.policy.DailyForecastAggregator
-import com.atomicaweather.domain.policy.DefaultDailyForecastAggregator
 import com.atomicaweather.domain.repository.WeatherRepository
 import com.atomicweather.data.repository.WeatherRepositoryImpl
 import dagger.Binds
@@ -15,7 +13,4 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun bindWeatherRepository(impl: WeatherRepositoryImpl): WeatherRepository
-
-    @Binds
-    abstract fun bindForecastAggregator(impl: DefaultDailyForecastAggregator): DailyForecastAggregator
 }

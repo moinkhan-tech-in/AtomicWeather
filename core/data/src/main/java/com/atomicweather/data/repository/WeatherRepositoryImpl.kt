@@ -1,7 +1,6 @@
 package com.atomicweather.data.repository
 
 import com.atomicaweather.domain.model.Forecast
-import com.atomicaweather.domain.policy.DailyForecastAggregator
 import com.atomicaweather.domain.repository.WeatherRepository
 import com.atomicweather.common.result.AppError
 import com.atomicweather.common.result.AppResult
@@ -15,7 +14,6 @@ import javax.inject.Inject
 class WeatherRepositoryImpl @Inject constructor(
     private val weatherApi: WeatherApi,
     private val dtoMapper: ForecastDtoToDomainMapper,
-    private val aggregator: DailyForecastAggregator,
     @WeatherMapApiKey private val weatherApiKey: String
 ): WeatherRepository {
 
