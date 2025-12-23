@@ -1,7 +1,6 @@
 package com.atomicweather.designsystem.components
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -39,7 +38,7 @@ fun WeatherCardItem(
                 shape = RoundedCornerShape(16.dp)
             )
             .clickable(enabled = true, onClick = { onExpandState(isExpanded.not()) })
-            .padding(12.dp)
+            .padding(vertical = 12.dp, horizontal = 16.dp)
     ) {
         Text(
             style = LocalAppTypography.current.weatherCardTitle,

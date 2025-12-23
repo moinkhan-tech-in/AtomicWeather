@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">AtomicWeather</string>
+    <string name="app_name">Atomic Weather</string>
     <string name="title_activity_main">MainActivity</string>
 </resources>

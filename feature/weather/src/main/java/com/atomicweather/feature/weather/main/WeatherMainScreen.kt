@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
@@ -25,6 +27,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -74,8 +77,14 @@ private fun WeatherMainScreenContent(
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
+            val cityName = (uiState as? WeatherMainUiState.Success)?.forecast?.cityName
+            val title = if (cityName.isNullOrBlank()) {
+                stringResource(R.string.title_5_day_forecast_no_city)
+            } else {
+                stringResource(R.string.title_5_day_forecast, cityName)
+            }
             WeatherTopBar(
-                title = stringResource(R.string.title_5_day_forecast),
+                title = title,
                 trailingImgSpec = AtomicImageSpec.Res(if (showGrid) R.drawable.ic_list else R.drawable.ic_grid)
                     .takeIf { uiState is WeatherMainUiState.Success },
                 trailingIconClick = { showGrid = showGrid.not() }
@@ -86,7 +95,11 @@ private fun WeatherMainScreenContent(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(it),
+                .padding(
+                    top = it.calculateTopPadding(),
+                    start = it.calculateStartPadding(LocalLayoutDirection.current),
+                    end = it.calculateEndPadding(LocalLayoutDirection.current)
+                ),
             contentAlignment = Alignment.Center
         ) {
             Crossfade(uiState) { state ->
@@ -117,7 +130,11 @@ private fun WeatherMainScreenContent(
 
 @Composable
 private fun WeatherAskPermissionPlaceholder(isGranted: Boolean, onAskPermission: () -> Unit = {}) {
-    AnimatedVisibility(isGranted.not()) {
+    AnimatedVisibility(
+        visible = isGranted.not(),
+        enter = fadeIn(),
+        exit = fadeOut()
+    ) {
         AtomicMessageInfo(
             text = stringResource(R.string.allow_location_access),
             imageSpec = AtomicImageSpec.Res(R.drawable.location_img),
@@ -151,7 +168,7 @@ private fun WeatherMainSuccessContent(forecast: ForecastUiModel, showGrid: Boole
         LazyVerticalStaggeredGrid(
             modifier = Modifier.fillMaxSize(),
             columns = StaggeredGridCells.Adaptive(minSize = if (it) 128.dp else 360.dp),
-            contentPadding = PaddingValues(32.dp),
+            contentPadding = PaddingValues(start = 32.dp, end = 32.dp, bottom = 120.dp, top = 32.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             verticalItemSpacing = 16.dp
         ) {

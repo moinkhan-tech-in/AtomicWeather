@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="title_5_day_forecast">5 Day Forecast</string>
+    <string name="title_5_day_forecast_no_city">5 Day Forecast</string>
+    <string name="title_5_day_forecast">5 Day Forecast • %1$s</string>
     <string name="allow_location_access">Allow location access</string>
     <string name="we_use_your_location_to_show_the_weather_forecast_for_your_area">We use your location to show the weather forecast for your area.</string>
     <string name="allow">Allow</string>

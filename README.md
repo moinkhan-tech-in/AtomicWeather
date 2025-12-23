@@ -4,6 +4,7 @@
 
 A modern Android weather application built with **Jetpack Compose** and **Clean Architecture**. Fetches 5-day weather forecasts using location-based services and the OpenWeather API.
 
+
 ## ✨ Features
 
 - 📍 Location-based weather forecast
