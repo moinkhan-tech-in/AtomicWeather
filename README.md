@@ -19,23 +19,23 @@ A modern Android weather application built with **Jetpack Compose** and **Clean 
 ### Portrait Mode
 
 <div align="center">
-  <img src="docs/images/main_grid.png" alt="Grid View" width="200"/>
   <img src="docs/images/main_list.png" alt="List View" width="200"/>
-  <img src="docs/images/main_grid_exp.png" alt="Grid Expanded" width="200"/>
+  <img src="docs/images/main_grid.png" alt="Grid View" width="200"/>
   <img src="docs/images/main_list_expanded.png" alt="List Expanded" width="200"/>
+  <img src="docs/images/main_grid_exp.png" alt="Grid Expanded" width="200"/>
 </div>
 
 ### Landscape Mode
 
 <div align="center">
-  <img src="docs/images/main_grid_landscape.png" alt="Grid View Landscape" width="400"/>
   <img src="docs/images/main_list_landscape.png" alt="List View Landscape" width="400"/>
+  <img src="docs/images/main_grid_landscape.png" alt="Grid View Landscape" width="400"/>
 </div>
 
 ## 🎥 Video
 
-<!-- Add video link or embed here when available -->
-_Demo video coming soon..._
+https://github.com/user-attachments/assets/0ddbe08b-572e-4a46-8701-5de728f78129
+
 
 ## 🏗️ Architecture
 
