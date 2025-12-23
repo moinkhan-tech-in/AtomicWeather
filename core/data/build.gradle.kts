@@ -43,6 +43,7 @@ dependencies {
     implementation(projects.core.network)
 
     implementation(libs.hilt.android)
+    implementation(libs.play.services.location)
     kapt(libs.hilt.compiler)
 
     implementation(libs.retrofit.core)

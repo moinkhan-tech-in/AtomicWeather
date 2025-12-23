@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title_5_day_forecast">5 Day Forecast</string>
+    <string name="allow_location_access">Allow location access</string>
+    <string name="we_use_your_location_to_show_the_weather_forecast_for_your_area">We use your location to show the weather forecast for your area.</string>
+    <string name="allow">Allow</string>
+    <string name="cancel">Cancel</string>
+    <string name="not_now">Not Now</string>
+    <string name="location_permission_needed">Location permission needed</string>
+    <string name="location_permission_is_disabled_enable_it_from_settings_to_get_local_weather">Location permission is disabled. Enable it from Settings to get local weather.</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="try_again">Try again!</string>
 </resources>

@@ -43,5 +43,21 @@ data class AtomicWeatherTypography(
         fontSize = 16.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.sp
-    )
+    ),
+
+    // Additional, Not available in assessment specs
+    val weatherCardBody: TextStyle = TextStyle(
+        fontFamily = PoppinsFontFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.sp
+    ),
+    val weatherActionText: TextStyle = TextStyle(
+        fontFamily = PoppinsFontFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.sp
+    ),
 )
