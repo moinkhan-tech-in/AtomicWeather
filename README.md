@@ -83,12 +83,6 @@ AtomicWeather/
 
 ## 🚀 Getting Started
 
-### Prerequisites
-
-- Android Studio Hedgehog or later
-- JDK 17+
-- Android SDK (Min SDK: 24, Target SDK: 36)
-
 ### Setup
 
 1. Clone the repository
@@ -108,12 +102,6 @@ AtomicWeather/
 ## 🧪 Testing
 
 The project follows **Test-Driven Development (TDD)** principles with comprehensive test coverage across all layers.
-
-### Test Structure
-
-- **ViewModel Tests**: UI state management and business logic
-- **Repository Tests**: Data mapping and error handling
-- **UseCase Tests**: Business logic validation
 
 ### Testing Libraries
 
@@ -149,11 +137,6 @@ GitHub Actions runs on every PR and push to main:
 - [ ] **Offline caching** - Room database for offline weather data
 - [ ] **Manual location input** - City search as fallback when location unavailable
 
-## 📱 Requirements
-
-- Min SDK: 24
-- Target SDK: 36
-- Java: 17
 
 ## 📄 License
 
