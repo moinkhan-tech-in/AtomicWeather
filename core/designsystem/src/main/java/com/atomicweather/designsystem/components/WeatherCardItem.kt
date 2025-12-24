@@ -37,12 +37,13 @@ fun WeatherCardItem(
                 color = MaterialTheme.colorScheme.primary,
                 shape = RoundedCornerShape(16.dp)
             )
-            .clickable(enabled = true, onClick = { onExpandState(isExpanded.not()) })
+            .clickable(onClick = { onExpandState(isExpanded.not()) })
             .padding(vertical = 12.dp, horizontal = 16.dp)
     ) {
         Text(
             style = LocalAppTypography.current.weatherCardTitle,
             text = title,
+            color = MaterialTheme.colorScheme.onPrimary
         )
         Row(
             modifier = Modifier.fillMaxWidth(),

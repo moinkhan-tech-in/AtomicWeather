@@ -15,7 +15,10 @@ fun AtomicWeatherTheme(
         else -> LightColorScheme
     }
 
-    CompositionLocalProvider(LocalAppTypography provides AtomicWeatherTypography()) {
+    CompositionLocalProvider(
+        LocalAppTypography provides AtomicWeatherTypography(),
+        LocalAppColors provides AtomicWeatherAppColor()
+    ) {
         MaterialTheme(
             colorScheme = colorScheme,
             content = content

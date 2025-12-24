@@ -1,5 +1,6 @@
 package com.atomicweather.designsystem.components
 
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.SpanStyle
@@ -29,6 +30,7 @@ fun AtomicDegreeValue(
 
     Text(
         text = annotated,
-        style = textStyle
+        style = textStyle,
+        color = MaterialTheme.colorScheme.onPrimary
     )
 }

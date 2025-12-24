@@ -17,3 +17,8 @@ internal val LightColorScheme = lightColorScheme(
     background = Color(0xFF121212),
     onPrimaryContainer = Color.White
 )
+
+// This is unused, However we can define our own branding color pallete.
+data class AtomicWeatherAppColor(
+    val primary: Color = Color.White
+)

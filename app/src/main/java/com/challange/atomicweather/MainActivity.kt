@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.atomicweather.designsystem.components.SetStatusBarForDarkUi
 import com.atomicweather.designsystem.theme.AtomicWeatherTheme
-import com.atomicweather.feature.weather.main.WeatherMainScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +17,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AtomicWeatherTheme {
                 SetStatusBarForDarkUi()
-                WeatherMainScreen()
+                AtomicNavHost()
             }
         }
     }
