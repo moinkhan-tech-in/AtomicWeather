@@ -25,16 +25,12 @@ A modern Android weather application built with **Jetpack Compose** and **Clean 
   <img src="docs/images/main_grid_exp.png" alt="Grid Expanded" width="200"/>
 </div>
 
-### Portrait Mode - Sunny
-<div align="center">
-  <img src="docs/images/main_list_expanded_sunny.png" alt="Grid View" width="200"/>
-  <img src="docs/images/main_list_sunny.png" alt="List View" width="200"/>
-</div>
-
-### Portrait Mode - Rainy
-<div align="center">
-  <img src="docs/images/main_list_expanded_sunny.png" alt="Grid View" width="200"/>
-  <img src="docs/images/main_list_sunny.png" alt="List View" width="200"/>
+### Portrait Mode - Sunny & Rainy
+<div>
+  <img src="docs/images/main_list_sunny.png" alt="Grid View" width="200"/>
+  <img src="docs/images/main_list_expanded_sunny.png" alt="List View" width="200"/>
+  <img src="docs/images/main_list_rainy.png" alt="List View" width="200"/>
+  <img src="docs/images/main_list_expanded_rainy.png" alt="Grid View" width="200"/>
 </div>
 
 ### Landscape Mode
@@ -111,13 +107,36 @@ AtomicWeather/
 
 ## 🧪 Testing
 
+The project follows **Test-Driven Development (TDD)** principles with comprehensive test coverage across all layers.
+
+### Test Structure
+
+- **ViewModel Tests**: UI state management and business logic
+- **Repository Tests**: Data mapping and error handling
+- **UseCase Tests**: Business logic validation
+
+### Testing Libraries
+
+- **JUnit**: Test framework
+- **MockK**: Mocking library for Kotlin
+- **Coroutines Test**: Testing coroutines and flows
+- **Turbine**: Flow testing utilities
+
+### Running Tests
+
 ```bash
-# Run unit tests
+# Run all unit tests
 ./gradlew testDebugUnitTest
 
 # Run Detekt
 ./gradlew detekt
 ```
+
+### Test Coverage
+
+- ✅ **UseCase Tests**: `GetWeatherForecastUseCaseTest` - Tests success and error flows
+- ✅ **Repository Tests**: `WeatherRepositoryImplTest` - Tests API integration, mapping, and error handling
+- ✅ **ViewModel Tests**: `WeatherMainViewModelTest` - Tests state transitions, location flow, and event handling
 
 ## 🤖 CI/CD
 
