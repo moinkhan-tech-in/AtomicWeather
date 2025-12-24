@@ -25,6 +25,18 @@ A modern Android weather application built with **Jetpack Compose** and **Clean 
   <img src="docs/images/main_grid_exp.png" alt="Grid Expanded" width="200"/>
 </div>
 
+### Portrait Mode - Sunny
+<div align="center">
+  <img src="docs/images/main_list_expanded_sunny.png" alt="Grid View" width="200"/>
+  <img src="docs/images/main_list_sunny.png" alt="List View" width="200"/>
+</div>
+
+### Portrait Mode - Rainy
+<div align="center">
+  <img src="docs/images/main_list_expanded_sunny.png" alt="Grid View" width="200"/>
+  <img src="docs/images/main_list_sunny.png" alt="List View" width="200"/>
+</div>
+
 ### Landscape Mode
 
 <div align="center">

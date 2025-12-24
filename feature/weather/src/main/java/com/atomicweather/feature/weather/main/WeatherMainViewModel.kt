@@ -7,6 +7,7 @@ import com.atomicaweather.domain.usecase.GetWeatherForecastUseCase
 import com.atomicweather.common.dispatcher.DispatcherProvider
 import com.atomicweather.common.result.fold
 import com.atomicweather.feature.weather.main.mapper.toUiModel
+import com.atomicweather.feature.weather.main.model.ForecastUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
