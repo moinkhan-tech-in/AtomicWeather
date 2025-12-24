@@ -103,6 +103,10 @@ AtomicWeather/
 
 The project follows **Test-Driven Development (TDD)** principles with comprehensive test coverage across all layers.
 
+<div align="center">
+  <img src="docs/images/test_cases.png" alt="Test Cases" width="800"/>
+</div>
+
 ### Testing Libraries
 
 - **JUnit**: Test framework
